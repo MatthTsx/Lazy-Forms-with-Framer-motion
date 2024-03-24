@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap')
-
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -20,7 +17,7 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* color: rgb(var(--foreground-rgb)); */
   background: linear-gradient(
       to bottom,
       transparent,
@@ -32,5 +29,53 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer components {
+  .drop-shadow_ {
+    --tw-drop-shadow: drop-shadow(0 4px 4px rgb(238 0 0 / .25));
+    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  }
+
+  .input_Personal{
+    @apply outline-none p-2 w-[193px] h-[28px] rounded-[6px] text-sm
+  }
+  .label_Personal-1{
+    @apply font-Lemonada
+  }
+
+  .div-inputs-Personal1{
+    @apply w-full flex justify-between
+  }
+
+  .Emoji_1_Gradient{
+    background: radial-gradient(circle at center 20px, #FFD467 60%, #FF8412);
+  }
+  .Emoji_2_Gradient{
+    background: radial-gradient(circle at center 20px, #FF9E67 60%, #FF6712);
+  }
+  .Emoji_3_Gradient{
+    background: radial-gradient(circle at center center, #FFECCF 60%, #301D00 90%);
+  }
+  .Emoji_4_Gradient{
+    background: radial-gradient(circle at center center, #301D00, #1B1000);
+  }
+  .P2-Gradient-1{
+    background: radial-gradient(circle at center center, #03023A 30%, #15143F);
+  }
+
+  .P2-Gradient-2{
+    background: radial-gradient(circle at center 10%, #FF810D, #881B1B);
+  }
+
+  .clip-path-E-hat{
+    clip-path: polygon(0 65%, 50% 55%, 100% 65%, 50% 85%);
+  }
+  .clip-path-Brasil{
+    clip-path: polygon(50% 10%, 100% 50%, 50% 90%, 0 50%);
+  }
+  .clip-path-Star{
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
   }
 }
