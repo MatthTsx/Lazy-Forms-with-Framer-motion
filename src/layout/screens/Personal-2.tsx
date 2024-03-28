@@ -47,14 +47,22 @@ function Personal_2({...p}: CommonPropsForScreen) {
             rotate: useTransform(smooth, [k(73), k(53)], ["0deg", "-30deg"]),
             translateX: useTransform(smooth, [k(73), k(53)], ["50%", "-20%"]),
             translateY: useTransform(smooth, [k(73), k(53)], ["-80%", "-200%"]),
-            // scale: useTransform(smooth, [k(56), k(53)], ["1", ".8"])
         }}>Where r u from?</motion.p>
 
-        <motion.div className='w-[120%] h-[28%] absolute rotate-[-30deg] bottom-[10%] left-0 flex justify-end'>
-            <motion.div className='bg-gradient-to-t from-[#040014] to-[#1C0800] h-full absolute' style={{width: useTransform(smooth, [k(50), k(40)], ["0", "100%"])}}/>
+        <motion.div className='w-[120%] h-[28%] absolute rotate-[-30deg] bottom-[10%] left-0 flex'>
+            <motion.div className='bg-gradient-to-t from-[#040014] to-[#1C0800] h-full absolute' style={{
+                width: useTransform(smooth, [k(50), k(40)], ["0", "100%"]),
+                display: useTransform(smooth, [k(60), k(20), k(10)], ["flex","flex", "none"])
+        }}/>
+            <div className='absolute flex h-full w-full justify-end'>
+                <motion.div className='bg-gradient-to-t from-[#040014] to-[#1C0800] h-full absolute' style={{
+                    width: useTransform(smooth, [k(20), k(10)], ["100%", "0%"]),
+                    display: useTransform(smooth, [k(60), k(20), k(10)], ["none","none", "flex"])
+        }}/>
+            </div>
             <motion.div style={{
-                display: useTransform(smooth, [k(100), k(40), k(20)], ["none", "none", "flex"]),
-                opacity: useTransform(smooth, [k(40), k(35)], ["0", "1"])
+                display: useTransform(smooth, [k(100), k(40), k(20), k(10), k(9)], ["none", "none", "flex", "flex", "none"]),
+                opacity: useTransform(smooth, [k(40), k(35), k(20), k(17.5)], ["0", "1", "1", "0"])
             }}>
                 {Flags["1"].map((a,i) => <Flag key={i} delay={i} func={setSelected} name={a} isSelected={a == Selected}/>)}
             </motion.div>
