@@ -69,6 +69,10 @@ body {
     background: radial-gradient(circle at center 10%, #FF810D, #881B1B);
   }
 
+  .Doc-Gradient-1{
+    background: radial-gradient(circle at 0% 0%, #8D4706 10%, #330D05)
+  }
+
   .clip-path-E-hat{
     clip-path: polygon(0 65%, 50% 55%, 100% 65%, 50% 85%);
   }
