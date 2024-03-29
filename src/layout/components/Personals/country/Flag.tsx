@@ -5,11 +5,12 @@ import French from './French'
 import Japan from './Japan'
 import USA from './USA'
 import China from './China'
+import { _Data_ } from '@/utils/types'
 
 
 interface props{
     delay: number,
-    func: React.Dispatch<React.SetStateAction<string>>,
+    func: React.Dispatch<React.SetStateAction<_Data_>>,
     name: string,
     isSelected: boolean
 }
@@ -36,7 +37,7 @@ function Flag({...p}: props) {
             filter: !p.isSelected ? "grayscale(1)" : "",
             opacity: p.isSelected ? "1" : "0.2"
         }}
-        onClick={(e) => p.func(p.name)}
+        onClick={(e) => p.func(d => ({...d, Country: p.name}))}
         >
             {getFlag(p.name)}
         </div>
