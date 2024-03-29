@@ -19,6 +19,9 @@ const config: Config = {
         Lemonada: ["var(--font-lemonada)", ...fontFamily.serif],
         Rubik_Microbe: ["var(--font-Rubik-Microbe)", ...fontFamily.mono],
         Rubik_Moonrocks: ["var(--font-RubikM)", ...fontFamily.serif],
+        Twinkle: ["var(--font-Twinkle)", ...fontFamily.serif],
+        Rye: ["var(--font-Rye)", ...fontFamily.serif],
+        Rubik_Mono_One: ["var(--font-Rubik-Mono-One)", ...fontFamily.serif],
       },
       colors: {
         "light-yellow": "#FFF2D1",
