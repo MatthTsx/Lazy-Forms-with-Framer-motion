@@ -22,6 +22,7 @@ const config: Config = {
         Twinkle: ["var(--font-Twinkle)", ...fontFamily.serif],
         Rye: ["var(--font-Rye)", ...fontFamily.serif],
         Rubik_Mono_One: ["var(--font-Rubik-Mono-One)", ...fontFamily.serif],
+        Rubik_Glitch: ["var(--font-Rubik-Glitch)", ...fontFamily.serif]
       },
       colors: {
         "light-yellow": "#FFF2D1",

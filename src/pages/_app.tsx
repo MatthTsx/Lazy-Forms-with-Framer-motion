@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { Lemon, Lemonada, Rubik_Microbe, Rubik_Moonrocks, Twinkle_Star, Rye, Rubik_Mono_One } from "next/font/google";
+import { Lemon, Lemonada, Rubik_Microbe, Rubik_Moonrocks, Twinkle_Star, Rye, Rubik_Mono_One, Rubik_Glitch } from "next/font/google";
 
 const lemon = Lemon({
   weight: "400",
@@ -31,12 +31,15 @@ const rye = Rye({
 const Rubik_mono_1 = Rubik_Mono_One({
   weight: "400", variable: "--font-Rubik-Mono-One", subsets: ["latin"]
 })
+const Rubik_glitch = Rubik_Glitch({
+  weight: "400", variable: "--font-Rubik-Glitch", subsets: ["latin"]
+})
 
 export default function App({ Component, pageProps }: AppProps) {
   return <main className={`
     ${lemon.variable} ${lemonada.variable} ${Rubik_Mo.variable}
     ${Rubik_Mi.variable} ${Twinkle.variable} ${rye.variable}
-    ${Rubik_mono_1.variable}
+    ${Rubik_mono_1.variable} ${Rubik_glitch.variable}
   `}>
     <Component {...pageProps} />;
   </main>
