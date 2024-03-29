@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import Personal_Input from '../components/Personals/Personal_Input'
-import { CommonPropsForScreen } from '@/utils/types'
+import type { CommonPropsData } from '@/utils/types'
 import E_effect from '../components/Personals/emojis/E_effect'
 
 
@@ -13,7 +13,8 @@ const EmojisEffectLeft = [
     {r:50, t:100, s:.4, tb:50, rOrL:true, delay:9, definer:3},
 ]
 
-function Personal_1({...p} : CommonPropsForScreen) {
+
+function Personal_1({...p} : CommonPropsData) {
     const {scrollYProgress} = useScroll()
     const k = (k: number): number => (p.i-k/100)/p.end
     const smoothProgress = useSpring(scrollYProgress, {bounce: 0, damping: 20})
@@ -46,7 +47,7 @@ function Personal_1({...p} : CommonPropsForScreen) {
     }
 
     const vanishing_ = {
-        display: useTransform(smoothProgress, [k(125),k(100), k(-20), k(-30)], ["none","flex", "flex" , "none"]),
+        display: useTransform(smoothProgress, [k(125),k(101),k(100), k(-20), k(-30)], ["none","none","flex", "flex" , "none"]),
     }
 
   return (
@@ -57,20 +58,20 @@ function Personal_1({...p} : CommonPropsForScreen) {
         >
 
             <motion.div className='scale-75 rotate-[-20deg] relative top-16' style={Dad_Mom(true)}>
-                <Personal_Input inputType={1}/>
+                <Personal_Input inputType={1} setData={p.setData}/>
             </motion.div>
     
             <div className='relative bottom-8'>
                 <motion.div className='absolute z-10' style={Nerd}>
-                    <Personal_Input inputType={3}/>
+                    <Personal_Input inputType={3} setData={p.setData}/>
                 </motion.div>
                 <motion.div className='' style={You}>
-                    <Personal_Input inputType={0}/>
+                    <Personal_Input inputType={0} setData={p.setData}/>
                 </motion.div>
             </div>
 
             <motion.div className='scale-75 rotate-[20deg] top-16 relative' style={Dad_Mom(false)}>
-                <Personal_Input inputType={2}/>
+                <Personal_Input inputType={2} setData={p.setData}/>
             </motion.div>
         </motion.div>
         <div className='fixed w-64 h-64 bottom-0 z-[-1] opacity-75 -left-2'>

@@ -60,13 +60,16 @@ function Personal_2({...p}: CommonPropsForScreen) {
                     display: useTransform(smooth, [k(60), k(20), k(10)], ["none","none", "flex"])
         }}/>
             </div>
-            <motion.div style={{
+            <motion.div className='flex items-center' style={{
                 display: useTransform(smooth, [k(100), k(40), k(20), k(10), k(9)], ["none", "none", "flex", "flex", "none"]),
                 opacity: useTransform(smooth, [k(40), k(35), k(20), k(17.5)], ["0", "1", "1", "0"])
             }}>
                 {Flags["1"].map((a,i) => <Flag key={i} delay={i} func={setSelected} name={a} isSelected={a == Selected}/>)}
             </motion.div>
         </motion.div>
+        <motion.div className='w-full h-full bg-orange-400 pointer-events-none backdrop-blur-lg absolute opacity-0' style={{
+            opacity: useTransform(smooth, [k(18), k(17.5), k(10)], ["0","0","1"]),
+        }}/>
     </motion.div>
   )
 }

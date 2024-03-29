@@ -18,7 +18,7 @@ const multi = 3
 function Flag({...p}: props) {
 
   return (
-    <motion.div className='absolute h-full aspect-[1.5] right-[20%] py-4'
+    <motion.div className='absolute h-[85%] aspect-[1.6] right-[20%]'
     animate={{
         right: ["80%", "-20%"],
     }}
