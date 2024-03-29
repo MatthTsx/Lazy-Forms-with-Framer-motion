@@ -10,6 +10,9 @@ export interface CommonPropsData extends CommonPropsForScreen{
 export interface CommonPDataPlus extends CommonPropsData{
     Data: _Data_
 }
+export interface CommonPDataViewer extends CommonPropsForScreen{
+    Data: _Data_
+}
 
 export interface _Data_{
     Name: string
@@ -18,6 +21,12 @@ export interface _Data_{
     D_Name: string
     College: string
     Course: string
+    Country: string
     RG: string
-    CPF: string
+    CPF: string,
+    CEP: string,
+    State: string,
+    City: string,
+    Address: string,
+    district: string
 }
