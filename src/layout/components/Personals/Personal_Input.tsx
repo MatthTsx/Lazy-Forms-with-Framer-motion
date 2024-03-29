@@ -3,13 +3,15 @@ import E_Normal from './emojis/E_Normal'
 import E_Mom from './emojis/E_mom'
 import E_Dad from './emojis/E_dad'
 import E_Nerd from './emojis/E_Nerd'
+import { _Data_ } from '@/utils/types'
 
 enum Input_Type {
   YOU, MOM, DAD, NERD
 }
 
 interface props{
-  inputType: Input_Type
+  inputType: Input_Type,
+  setData: React.Dispatch<React.SetStateAction<_Data_>>
 }
 function Personal_Input({...p}: props) {
   return (
@@ -18,7 +20,7 @@ function Personal_Input({...p}: props) {
       {tittle(p.inputType)}
       {Emoji(p.inputType)}
       <div className='flex w-[270px] flex-col gap-y-[20px]'>
-        {labels_inputs(p.inputType)}
+        {labels_inputs(p.inputType, p.setData)}
       </div>
     </div>
   )
@@ -40,19 +42,24 @@ function tittle(p: Input_Type){
   </p>
 }
 
-function labels_inputs(p: Input_Type){
+function labels_inputs(p: Input_Type, setData: React.Dispatch<React.SetStateAction<_Data_>>){
   return <>
     <div className='div-inputs-Personal1'>
       <label className='label_Personal-1'>{p == 3 ? "College" : "Name"}: </label>
-      <input type="text" className='input_Personal'/>
+      <input type="text" className='input_Personal' onChange={e => setData(d => ({...d,
+        Name: p == 0 ? e.target.value : d.Name,
+        M_Name: p == 1 ? e.target.value : d.M_Name,
+        D_Name: p == 2 ? e.target.value : d.D_Name,
+        College: p == 3? e.target.value : d.College
+      }))}/>
     </div>
     {p == 0 && <div className='div-inputs-Personal1'>
       <label className='label_Personal-1'>Email: </label>
-      <input type="text" className='input_Personal'/>
+      <input type="text" className='input_Personal' onChange={e => setData(d => ({...d, Email: e.target.value}))}/>
     </div>}
     {p == 3 && <div className='div-inputs-Personal1'>
       <label className='label_Personal-1'>Course: </label>
-      <input type="text" className='input_Personal'/>
+      <input type="text" className='input_Personal' onChange={e => setData(d => ({...d, Course: e.target.value}))}/>
     </div>}
     <div className='w-[270px] h-[28px] bg-black/20 input_Personal'/>
     {(p == 2 || p == 1) && 
