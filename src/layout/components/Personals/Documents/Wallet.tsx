@@ -13,7 +13,7 @@ function Wallet({...p} : CommonPDataPlus) {
 
   return (
     <motion.div className='aspect-[1.6] h-[60%] absolute z-10 items-center flex left-[7.5%]' style={{
-        left: useTransform(smooth, [k(95), k(90)], ["-50%", "7.5%"])
+        left: useTransform(smooth, [k(95), k(87.5), k(40), k(30)], ["-50%", "7.5%", "7.5%", "-50%"])
     }}>
         <Image src={"/images/wallet.png"} width={600} height={200} alt='wallet' className='h-full object-cover w-auto absolute -z-10'/>
         <MainCard {...p}/>
