@@ -1,4 +1,4 @@
-import { CommonPropsForScreen } from '@/utils/types'
+import type { CommonPDataPlus } from '@/utils/types'
 import { motion, useTransform, useSpring, useScroll } from 'framer-motion'
 import React from 'react'
 import Flag from '../components/Personals/country/Flag'
@@ -9,11 +9,10 @@ const Flags = {
     ]
 }
 
-function Personal_2({...p}: CommonPropsForScreen) {
+function Personal_2({...p}: CommonPDataPlus) {
     const scroll = useScroll()
     const smooth = useSpring(scroll.scrollYProgress, {bounce: 0})
     const k = (k: number): number => (p.i-k/100)/p.end
-    const [Selected, setSelected] = React.useState("")
 
   return (
     <motion.div className='fixed w-full h-full P2-Gradient-1'
@@ -64,7 +63,7 @@ function Personal_2({...p}: CommonPropsForScreen) {
                 display: useTransform(smooth, [k(100), k(40), k(20), k(10), k(9)], ["none", "none", "flex", "flex", "none"]),
                 opacity: useTransform(smooth, [k(40), k(35), k(20), k(17.5)], ["0", "1", "1", "0"])
             }}>
-                {Flags["1"].map((a,i) => <Flag key={i} delay={i} func={setSelected} name={a} isSelected={a == Selected}/>)}
+                {Flags["1"].map((a,i) => <Flag key={i} delay={i} func={p.setData} name={a} isSelected={a == p.Data.Country}/>)}
             </motion.div>
         </motion.div>
         <motion.div className='w-full h-full bg-orange-400 pointer-events-none backdrop-blur-lg absolute opacity-0' style={{
