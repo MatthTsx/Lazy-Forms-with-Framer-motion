@@ -1,7 +1,7 @@
 ## About the project
 
 This website is for a school work about retriving data from a forms with php.
-Keep in mind that this code is only for the frontend and the backend will not influence your experience
+Keep in mind that this code is only for the frontend and the backend will not influence your experience and this site is not responsive, so consider using it on your computer
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
