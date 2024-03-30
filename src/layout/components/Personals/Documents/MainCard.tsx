@@ -11,7 +11,7 @@ function MainCard({...p} : CommonPDataPlus) {
 
     return (
     <motion.div className='w-[60%] aspect-[1.6] absolute rounded-[11px] Doc-Gradient-1 flex p-4 drop-shadow-md' style={{
-        left: useTransform(smooth, [k(92.5), k(90)], ["0%", "60%"])
+        left: useTransform(smooth, [k(92.5), k(85), k(42.5), k(32.5)], ["0%", "60%", "60%", "0%"])
     }}>
         <Image src={"/images/jake.png"} alt='picture' width={200} height={200} className='w-[30%] h-[60%] rounded-md object-cover opacity-90'/>
         <div className='flex flex-col px-2 w-[70%] gap-1'>
@@ -23,7 +23,7 @@ function MainCard({...p} : CommonPDataPlus) {
                         onKeyDown={e => {
                             const val = e.key
                             if(val == "Backspace") return p.setData(d => ({...d, RG: d.RG.slice(0, d.RG.length-1)}))
-                            if(!parseInt(val) || p.Data.RG.length >= 9) return
+                            if((!parseInt(val) && parseInt(val) != 0) || p.Data.RG.length >= 9) return
                             p.setData(d => ({...d, RG: d.RG + val}))
                         }}
                         />
@@ -34,7 +34,7 @@ function MainCard({...p} : CommonPDataPlus) {
                         onKeyDown={e => {
                             const val = e.key
                             if(val == "Backspace") return p.setData(d => ({...d, CPF: d.CPF.slice(0, d.CPF.length-1)}))
-                            if(!parseInt(val) || p.Data.CPF.length >= 11) return
+                            if((!parseInt(val) && parseInt(val) != 0) || p.Data.CPF.length >= 11) return
                             p.setData(d => ({...d, CPF: d.CPF + val}))
                         }}
                         />
@@ -51,7 +51,6 @@ function MainCard({...p} : CommonPDataPlus) {
                 </div>
             </div>
         </div>
-        <div className='absolute bottom-0 right-0 bg-blue-500 w-4 aspect-square'/>
     </motion.div>
   )
 }
