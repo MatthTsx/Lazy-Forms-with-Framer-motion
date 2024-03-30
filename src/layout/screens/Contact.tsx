@@ -16,7 +16,9 @@ function Contact({...p} : CommonPDataPlus) {
     const [search, setSearch] = React.useState("")
 
     const sla = async () => {
-        await fetch(`https://cdn.apicep.com/file/apicep/${CepPlaceholder(search)}.json`, ).then(r => r.json().then(d => {
+        await fetch(`https://cdn.apicep.com/file/apicep/${CepPlaceholder(search)}.json`,{
+            method: 'GET'
+        } ).then(r => r.json().then(d => {
             if(d.status != 200) return
             p.setData(dt => ({...dt,
                 CEP: d.code,
