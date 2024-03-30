@@ -47,7 +47,7 @@ function Personal_1({...p} : CommonPropsData) {
     }
 
     const vanishing_ = {
-        display: useTransform(smoothProgress, [k(125),k(101),k(100), k(-20), k(-30)], ["none","none","flex", "flex" , "none"]),
+        display: useTransform(smoothProgress, [k(125),k(120),k(100), k(-20), k(-30)], ["none","none","flex", "flex" , "none"]),
     }
 
   return (
