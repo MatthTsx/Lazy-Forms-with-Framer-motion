@@ -1,4 +1,4 @@
-import { CommonPDataPlus, CommonPropsForScreen } from '@/utils/types'
+import { CommonPDataPlus, CommonPropsForScreen, _Data_ } from '@/utils/types'
 import { motion, useTransform, useScroll, useSpring } from 'framer-motion'
 import React from 'react'
 import Car from '../components/contact/car'
@@ -8,6 +8,20 @@ import BoxC from '../components/contact/BoxC'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
+const sla = async (search: string, p: React.Dispatch<React.SetStateAction<_Data_>>) => {
+    await fetch(`https://cdn.apicep.com/file/apicep/${CepPlaceholder(search)}.json`, {mode: 'cors'})
+    .then(d => d.json().then(r => {
+        if(d.status != 200) return
+        p(d => ({...d,
+            CEP: r.code,
+            State: r.state,
+            City: r.city,
+            district: r.district,
+            Address: r.address
+        }))
+    }))
+    .catch(err => console.error(err))
+}
 
 function Contact({...p} : CommonPDataPlus) {
     const scrl = useScroll().scrollYProgress
@@ -15,19 +29,6 @@ function Contact({...p} : CommonPDataPlus) {
     const k = (i:number) => (p.i-i/100)/p.end
     const [search, setSearch] = React.useState("")
 
-    const sla = async () => {
-        await fetch(`https://cdn.apicep.com/file/apicep/${CepPlaceholder(search)}.json`,{mode: 'no-cors'
-        } ).then(r => r.json().then(d => {
-            if(d.status != 200) return
-            p.setData(dt => ({...dt,
-                CEP: d.code,
-                Address: d.address,
-                City: d.city,
-                State: d.state,
-                district: d.district,
-            }))
-        })).catch(err => console.log(err))
-    }
 
   return (
     <motion.div className='fixed h-screen w-screen flex items-center justify-center bg-gradient-to-t from-[#9A7E6A] to-[#FAE2D0]' style={{
@@ -59,7 +60,7 @@ function Contact({...p} : CommonPDataPlus) {
                     }}
                         className='px-2 font-Twinkle outline-none rounded-[3px] bg-black/20 text-[20px] w-[7em] text-center'
                     />
-                    <button onClick={async () => await sla()}><FontAwesomeIcon icon={faSearch} className='h-[20px] aspect-square hover:scale-[1.1] transition-all'/></button>
+                    <button onClick={async () => await sla(search, p.setData)}><FontAwesomeIcon icon={faSearch} className='h-[20px] aspect-square hover:scale-[1.1] transition-all'/></button>
                 </div>
                 <p className='text-[14px] mt-4'>{p.Data.State || "??"}. {p.Data.City.slice(0,20) || "?????"}</p>
                 <div className='flex flex-col gap-[-2px] text-[14px]'>
